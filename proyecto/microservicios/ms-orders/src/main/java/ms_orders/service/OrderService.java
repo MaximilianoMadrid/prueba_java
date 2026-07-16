@@ -14,12 +14,15 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderNotifierService orderNotifierService; 
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository,
+                         OrderNotifierService orderNotifierService) { 
         this.orderRepository = orderRepository;
+        this.orderNotifierService = orderNotifierService;
     }
 
-    public OrderResponse createOrder(OrderRequest request) {
+     public OrderResponse createOrder(OrderRequest request) {
         Order order = Order.builder()
                 .email(request.getEmail())
                 .nombreProducto(request.getNombreProducto())
@@ -28,6 +31,9 @@ public class OrderService {
                 .canal(request.getCanal())
                 .estado(OrderStatus.PENDIENTE)
                 .build();
+
+        Order saved = orderRepository.save(order);
+        orderNotifierService.notifyOrderCreated(saved); 
 
         return toResponse(orderRepository.save(order));
     }

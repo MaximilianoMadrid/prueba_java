@@ -29,3 +29,8 @@ management:
   endpoint:
     health:
       show-details: always
+
+aws:
+  region: ${AWS_REGION:us-east-1}
+  sqs:
+    queue-name: ${SQS_QUEUE_NAME:smartlogix-orders-queue}
