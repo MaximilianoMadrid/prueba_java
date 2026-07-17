@@ -16,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -71,8 +72,8 @@ class OrderServiceTest {
             response.getEstado()
     );
 
-    verify(orderRepository)
-            .save(any(Order.class));
+    verify(orderRepository,
+            times(2)).save(any(Order.class));
     }
 
     @Test
