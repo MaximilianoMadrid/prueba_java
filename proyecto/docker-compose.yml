@@ -54,7 +54,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: "1234"
     depends_on:
       db-auth:
-        condition: service_healthy
+        - db-auth
     networks:
       - smartlogix-net
     healthcheck:
@@ -82,7 +82,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: "1234"
     depends_on:
       db-orders:
-        condition: service_healthy
+        - db-orders
     networks:
       - smartlogix-net
     healthcheck:
@@ -108,9 +108,9 @@ services:
       - "8080:8080"
     depends_on:
       ms-auth:
-        condition: service_healthy
+        - ms-auth
       ms-orders:
-        condition: service_healthy
+        - ms-orders
     networks:
       - smartlogix-net
     deploy:
