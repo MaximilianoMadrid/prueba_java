@@ -24,6 +24,9 @@ class OrderServiceTest {
     @Mock
     private OrderRepository orderRepository;
 
+    @Mock
+    private OrderNotifierService orderNotifierService;
+
     @InjectMocks
     private OrderService orderService;
 
