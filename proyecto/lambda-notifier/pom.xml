@@ -34,7 +34,7 @@
 
     <build>
         <plugins>
-            <!-- Empaqueta la Lambda + todas sus dependencias en un solo jar -->
+            <!-- Empaqueta la Lambda + todas sus dependencias en un solo jar  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
