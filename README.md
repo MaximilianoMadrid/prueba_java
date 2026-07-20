@@ -28,7 +28,7 @@ Esto imprime un token de tipo `docker swarm join --token ... <IP>:2377`.
 
 ### 2.2 Agregar un nodo worker
 
-En la otra máquina (o instancia EC2), ejecutar el comando entregado por el paso anterior:
+En la otra máquina (o instancia EC2), ejecutar el comando entregado por el paso anterior :
 
 ```bash
 docker swarm join --token SWMTKN-1-xxxxxxxx <IP_MANAGER>:2377
